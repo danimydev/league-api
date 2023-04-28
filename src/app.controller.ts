@@ -9,14 +9,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-
-  @Get('champions')
-  getChampions() {
-    return this.appService.getChampions();
-  }
-
-  @Get('champions/:name')
-  getChampionByName(@Param() params: { name: string }) {
-    return this.appService.getChampionByName(params.name);
-  }
 }
