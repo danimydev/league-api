@@ -1,9 +1,9 @@
 {
   "imports": {
-    "oak": "https://deno.land/x/oak/mod.ts"
+    "oak": "https://deno.land/x/oak@v12.5.0/mod.ts"
   },
   "tasks": {
-    "dev": "deno run --watch ./src/index.ts"
+    "dev": "deno run --watch --allow-net ./src/index.ts"
   },
   "fmt": {
     "useTabs": true,
