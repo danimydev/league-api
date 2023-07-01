@@ -6,8 +6,8 @@ export class ChampionsRepository {
 		partype: Array<string>;
 	}) {
 		return CHAMPIONS.filter((c) => {
-			let includesTag = false;
-			let includesPartype = false;
+			let includesTag = filters.tags.length === 0;
+			let includesPartype = filters.partype.length === 0;
 
 			for (let i = 0; i < filters.tags.length; i++) {
 				const desiredTag = filters.tags[i];
