@@ -1,6 +1,6 @@
 import { Application, Router } from 'oak';
-import { ChampionsRepository } from './repository/champions.ts';
-import { ImageRepository } from './repository/images.ts';
+import { ChampionsRepository } from './repositories/champions.ts';
+import { ImageRepository } from './repositories/images.ts';
 
 const championsRouter = new Router()
 	.get('/champions', (ctx) => {
@@ -25,6 +25,8 @@ const imagesRouter = new Router()
 	});
 
 const app = new Application();
+
 app.use(championsRouter.routes());
 app.use(imagesRouter.routes());
+
 await app.listen({ port: 3000 });
