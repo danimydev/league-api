@@ -3,11 +3,11 @@ import { CHAMPIONS } from '../data/champions.ts';
 export class ChampionsRepository {
 	static get(filters: {
 		tags: Array<string>;
-		partype: Array<string>;
+		partypes: Array<string>;
 	}) {
 		return CHAMPIONS.filter((c) => {
 			let includesTag = filters.tags.length === 0;
-			let includesPartype = filters.partype.length === 0;
+			let includesPartypes = filters.partypes.length === 0;
 
 			for (let i = 0; i < filters.tags.length; i++) {
 				const desiredTag = filters.tags[i];
@@ -16,14 +16,14 @@ export class ChampionsRepository {
 				}
 			}
 
-			for (let i = 0; i < filters.partype.length; i++) {
-				const desiredPartype = filters.partype[i];
+			for (let i = 0; i < filters.partypes.length; i++) {
+				const desiredPartype = filters.partypes[i];
 				if (c.partype === desiredPartype) {
-					includesPartype = true;
+					includesPartypes = true;
 				}
 			}
 
-			return includesTag && includesPartype;
+			return includesTag && includesPartypes;
 		});
 	}
 
