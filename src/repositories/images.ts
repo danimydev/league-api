@@ -5,7 +5,7 @@ export class ImageRepository {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin}.jpg`;
 		const res = await fetch(url);
-		return res;
+		return res.text();
 	}
 
 	static async getLoading(
@@ -14,13 +14,13 @@ export class ImageRepository {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${skin}.jpg`;
 		const res = await fetch(url);
-		return res;
+		return res.text();
 	}
 
 	static async getSquare({ championName }: { championName: string }) {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${championName}.png`;
 		const res = await fetch(url);
-		return res;
+		return res.text();
 	}
 }

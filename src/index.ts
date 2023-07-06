@@ -19,7 +19,7 @@ const imagesRouter = new Router()
 		return ctx.response.body = ImageRepository.getLoading(
 			{
 				championName: ctx.params.championName,
-				skin: searchParams.get('skin') || '',
+				skin: searchParams.get('skin') || '0',
 			},
 		);
 	});
