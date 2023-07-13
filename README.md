@@ -24,7 +24,7 @@ Go to the project directory
 Start the server
 
 ```bash
-  deno task start
+  deno task dev
 ```
 
 
