@@ -53,7 +53,7 @@ Start the server
 #### Get champion image
 
 ```http
-  GET /images/${championName}
+  GET /champions/${championName}/images
 ```
 
 | Parameter | Type     | Description                       |
