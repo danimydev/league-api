@@ -1,26 +1,41 @@
 export class ImageRepository {
-	static async getSplash(
+	static getSplash(
 		{ championName, skin }: { championName: string; skin: string },
 	) {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin}.jpg`;
-		const res = await fetch(url);
-		return res.text();
+		return {
+			type: 'splash',
+			image: {
+				type: 'image/jpg',
+				url,
+			},
+		};
 	}
 
-	static async getLoading(
+	static getLoading(
 		{ championName, skin }: { championName: string; skin: string },
 	) {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${skin}.jpg`;
-		const res = await fetch(url);
-		return res.text();
+		return {
+			type: 'loading',
+			image: {
+				type: 'image/jpg',
+				url,
+			},
+		};
 	}
 
-	static async getSquare({ championName }: { championName: string }) {
+	static getSquare({ championName }: { championName: string }) {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${championName}.png`;
-		const res = await fetch(url);
-		return res.text();
+		return {
+			type: 'square',
+			image: {
+				type: 'image/png',
+				url,
+			},
+		};
 	}
 }
