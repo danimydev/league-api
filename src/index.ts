@@ -14,22 +14,26 @@ const championsRouter = new Router()
 	})
 	.get('/champions/:id', (ctx) => {
 		return ctx.response.body = ChampionsRepository.getById(ctx.params.id);
-	});
-
-const imagesRouter = new Router()
-	.get('/images/:championName', (ctx) => {
+	})
+	.get('/champions/:id/images', (ctx) => {
 		const { searchParams } = ctx.request.url;
-		return ctx.response.body = ImageRepository.getLoading(
-			{
-				championName: ctx.params.championName,
-				skin: searchParams.get('skin') || '0',
-			},
-		);
+		const skinNumber = searchParams.get('skinNumber') || '0';
+		return ctx.response.body = [
+			ImageRepository.getLoading({
+				championName: ctx.params.id,
+				skin: skinNumber,
+			}),
+			ImageRepository.getSplash({
+				championName: ctx.params.id,
+				skin: skinNumber,
+			}),
+			ImageRepository.getSquare({
+				championName: ctx.params.id,
+			}),
+		];
 	});
 
-const app = new Application();
-
-app.use(championsRouter.routes());
-app.use(imagesRouter.routes());
+const app = new Application()
+	.use(championsRouter.routes());
 
 await app.listen({ port: 3000 });
