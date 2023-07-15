@@ -60,3 +60,13 @@ Start the server
 | :-------- | :------- | :-------------------------------- |
 | `championName`      | `string` | **Required**. Name of champion to fetch image |
 
+
+#### Get summoner by name
+
+```http
+  GET /summoners/${summonerName}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `summonerName`      | `string` | **Required**. Name of summoner to fetch image |
