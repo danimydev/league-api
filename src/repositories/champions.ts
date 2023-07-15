@@ -28,6 +28,10 @@ export class ChampionsRepository {
 	}
 
 	static getById(id: string) {
-		return CHAMPIONS.filter((c) => c.id === id);
+		const filteredChampions = CHAMPIONS.filter((c) => c.id === id);
+		if (filteredChampions.length !== 0) {
+			return filteredChampions.at(0);
+		}
+		return null;
 	}
 }
