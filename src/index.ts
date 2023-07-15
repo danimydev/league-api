@@ -1,6 +1,7 @@
 import { Application, Router } from 'oak';
 import { ChampionsRepository } from './repositories/champions.ts';
 import { ImageRepository } from './repositories/images.ts';
+import { SummonersRepository } from './repositories/summoners.ts';
 
 const championsRouter = new Router()
 	.get('/champions', (ctx) => {
@@ -33,7 +34,21 @@ const championsRouter = new Router()
 		];
 	});
 
+const summonersRouter = new Router()
+	.get('/summoners/:summonerName', async (ctx) => {
+		const { summonerName } = ctx.params;
+		const { searchParams } = ctx.request.url;
+		const region = searchParams.get('region') || 'LA1';
+		const apiKey = ctx.request.headers.get('api_key') || '';
+		return ctx.response.body = await SummonersRepository.getSummonerByName({
+			apiKey,
+			region,
+			summonerName,
+		});
+	});
+
 const app = new Application()
-	.use(championsRouter.routes());
+	.use(championsRouter.routes())
+	.use(summonersRouter.routes());
 
 await app.listen({ port: 3000 });
