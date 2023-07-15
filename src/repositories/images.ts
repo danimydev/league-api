@@ -50,4 +50,16 @@ export class ImageRepository {
 			},
 		};
 	}
+
+	static getSpellUrlByName(name: string) {
+		const url =
+			`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/spell/${name}.png`;
+		return {
+			type: 'spell',
+			image: {
+				type: 'image/png',
+				url,
+			},
+		};
+	}
 }
