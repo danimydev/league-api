@@ -38,4 +38,16 @@ export class ImageRepository {
 			},
 		};
 	}
+
+	static getIconUrlById(id: number) {
+		const url =
+			`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/profileicon/${id}.png`;
+		return {
+			type: 'icon',
+			image: {
+				type: 'image/png',
+				url,
+			},
+		};
+	}
 }
