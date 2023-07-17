@@ -39,7 +39,7 @@ export class ImageRepository {
 		};
 	}
 
-	static getIconUrlById(id: number) {
+	static getIconUrlById(id: string) {
 		const url =
 			`http://ddragon.leagueoflegends.com/cdn/13.13.1/img/profileicon/${id}.png`;
 		return {

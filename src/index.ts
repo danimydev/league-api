@@ -47,8 +47,15 @@ const summonersRouter = new Router()
 		});
 	});
 
+const imagesRouter = new Router()
+	.get('/images/icons/:iconId', (ctx) => {
+		const { iconId } = ctx.params;
+		return ctx.response.body = ImageRepository.getIconUrlById(iconId);
+	});
+
 const app = new Application()
 	.use(championsRouter.routes())
-	.use(summonersRouter.routes());
+	.use(summonersRouter.routes())
+	.use(imagesRouter.routes());
 
 await app.listen({ port: 3000 });
