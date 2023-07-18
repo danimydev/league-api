@@ -6,7 +6,9 @@ A deno api for fetching league of legends champions, it includes stats, types, g
 
 ## Requirements
 
-[deno](https://deno.land/)
+- [deno](https://deno.land/)
+- [riot api key](https://developer.riotgames.com/)
+
 ## Run Locally
 
 Clone the project
@@ -26,7 +28,6 @@ Start the server
 ```bash
   deno task dev
 ```
-
 
 ## API Reference
 
@@ -70,3 +71,13 @@ Start the server
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `summonerName`      | `string` | **Required**. Name of summoner to fetch image |
+
+#### Get icon by id
+
+```http
+  GET /images/icons/${iconId}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `iconId`      | `string` | **Required**. icon id to fetch ex. 658, 0, 10 |
