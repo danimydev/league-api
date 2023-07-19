@@ -57,9 +57,19 @@ const imagesRouter = new Router()
 		return ctx.response.body = ImageRepository.getSpellUrlByName(spellName);
 	});
 
+const infoRouter = new Router()
+	.get('/info/regions', (ctx) => {
+		return ctx.response.body = [
+			'LA1',
+			'NA',
+			'EU',
+		];
+	});
+
 const app = new Application()
 	.use(championsRouter.routes())
 	.use(summonersRouter.routes())
-	.use(imagesRouter.routes());
+	.use(imagesRouter.routes())
+	.use(infoRouter.routes());
 
 await app.listen({ port: 3000 });
