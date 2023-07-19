@@ -51,6 +51,10 @@ const imagesRouter = new Router()
 	.get('/images/icons/:iconId', (ctx) => {
 		const { iconId } = ctx.params;
 		return ctx.response.body = ImageRepository.getIconUrlById(iconId);
+	})
+	.get('/images/spells/:spellName', (ctx) => {
+		const { spellName } = ctx.params;
+		return ctx.response.body = ImageRepository.getSpellUrlByName(spellName);
 	});
 
 const app = new Application()
