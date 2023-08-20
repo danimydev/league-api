@@ -1,7 +1,10 @@
 import { Application, Router } from 'oak';
-import { ChampionsRepository } from './repositories/champions.ts';
-import { ImageRepository } from './repositories/images.ts';
-import { SummonersRepository } from './repositories/summoners.ts';
+import {
+	ChampionsRepository,
+	ImagesRepository,
+	SummonersRepository,
+} from './repositories/index.ts';
+import REGIONS from './data/regions.ts';
 
 const championsRouter = new Router()
 	.get('/champions', (ctx) => {
@@ -20,15 +23,15 @@ const championsRouter = new Router()
 		const { searchParams } = ctx.request.url;
 		const skinNumber = searchParams.get('skinNumber') || '0';
 		return ctx.response.body = [
-			ImageRepository.getLoading({
+			ImagesRepository.getLoading({
 				championName: ctx.params.id,
 				skin: skinNumber,
 			}),
-			ImageRepository.getSplash({
+			ImagesRepository.getSplash({
 				championName: ctx.params.id,
 				skin: skinNumber,
 			}),
-			ImageRepository.getSquare({
+			ImagesRepository.getSquare({
 				championName: ctx.params.id,
 			}),
 		];
@@ -50,20 +53,16 @@ const summonersRouter = new Router()
 const imagesRouter = new Router()
 	.get('/images/icons/:iconId', (ctx) => {
 		const { iconId } = ctx.params;
-		return ctx.response.body = ImageRepository.getIconUrlById(iconId);
+		return ctx.response.body = ImagesRepository.getIconUrlById(iconId);
 	})
 	.get('/images/spells/:spellName', (ctx) => {
 		const { spellName } = ctx.params;
-		return ctx.response.body = ImageRepository.getSpellUrlByName(spellName);
+		return ctx.response.body = ImagesRepository.getSpellUrlByName(spellName);
 	});
 
 const infoRouter = new Router()
 	.get('/info/regions', (ctx) => {
-		return ctx.response.body = [
-			'LA1',
-			'NA',
-			'EU',
-		];
+		return ctx.response.body = REGIONS;
 	});
 
 const app = new Application()

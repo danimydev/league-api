@@ -1,4 +1,4 @@
-export class ImageRepository {
+export class ImagesRepository {
 	static getSplash(
 		{ championName, skin }: { championName: string; skin: string },
 	) {
