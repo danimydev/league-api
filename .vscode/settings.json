@@ -1,7 +1,10 @@
 {
     "deno.enable": true,
     "deno.lint": true,
-    "editor.defaultFormatter": "denoland.vscode-deno",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
 }
