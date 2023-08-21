@@ -6,8 +6,8 @@ import {
 } from './repositories/index.ts';
 import REGIONS from './data/regions.ts';
 
-const championsRouter = new Router()
-	.get('/champions', (ctx) => {
+const championsRouter = new Router({ prefix: '/champions' })
+	.get('/', (ctx) => {
 		const { searchParams } = ctx.request.url;
 		const tags = (searchParams.get('tags') || '').split(/ /g);
 		const partypes = (searchParams.get('partypes') || '').split(/ /g);
@@ -16,10 +16,10 @@ const championsRouter = new Router()
 			partypes: partypes.at(0) !== '' ? partypes : [],
 		});
 	})
-	.get('/champions/:id', (ctx) => {
+	.get('/:id', (ctx) => {
 		return ctx.response.body = ChampionsRepository.getById(ctx.params.id);
 	})
-	.get('/champions/:id/images', (ctx) => {
+	.get('/:id/images', (ctx) => {
 		const { searchParams } = ctx.request.url;
 		const skinNumber = searchParams.get('skinNumber') || '0';
 		return ctx.response.body = [
@@ -37,8 +37,8 @@ const championsRouter = new Router()
 		];
 	});
 
-const summonersRouter = new Router()
-	.get('/summoners/:summonerName', async (ctx) => {
+const summonersRouter = new Router({ prefix: '/summoners' })
+	.get('/:summonerName', async (ctx) => {
 		const { summonerName } = ctx.params;
 		const { searchParams } = ctx.request.url;
 		const region = searchParams.get('region') || 'LA1';
@@ -50,19 +50,22 @@ const summonersRouter = new Router()
 		});
 	});
 
-const imagesRouter = new Router()
-	.get('/images/icons/:iconId', (ctx) => {
+const imagesRouter = new Router({ prefix: '/images' })
+	.get('/icons/:iconId', (ctx) => {
 		const { iconId } = ctx.params;
 		return ctx.response.body = ImagesRepository.getIconUrlById(iconId);
 	})
-	.get('/images/spells/:spellName', (ctx) => {
+	.get('/spells/:spellName', (ctx) => {
 		const { spellName } = ctx.params;
 		return ctx.response.body = ImagesRepository.getSpellUrlByName(spellName);
 	});
 
-const infoRouter = new Router()
-	.get('/info/regions', (ctx) => {
+const infoRouter = new Router({ prefix: '/info' })
+	.get('/regions', (ctx) => {
 		return ctx.response.body = REGIONS;
+	})
+	.get('/versions', (ctx) => {
+		return ctx.response.body = [];
 	});
 
 const app = new Application()
