@@ -34,7 +34,7 @@ Start the server
 #### Get all champions
 
 ```http
-  GET /champions
+GET /champions
 ```
 
 | Parameter | Type     | Description                |
@@ -44,7 +44,7 @@ Start the server
 #### Get champion by name
 
 ```http
-  GET /champions/${championName}
+GET /champions/${championName}
 ```
 
 | Parameter | Type     | Description                       |
@@ -54,7 +54,7 @@ Start the server
 #### Get champion image
 
 ```http
-  GET /champions/${championName}/images
+GET /champions/${championName}/images
 ```
 
 | Parameter | Type     | Description                       |
@@ -65,7 +65,7 @@ Start the server
 #### Get summoner by name
 
 ```http
-  GET /summoners/${summonerName}
+GET /summoners/${summonerName}
 ```
 
 | Parameter | Type     | Description                       |
@@ -75,7 +75,7 @@ Start the server
 #### Get icon by id
 
 ```http
-  GET /images/icons/${iconId}
+GET /images/icons/${iconId}
 ```
 
 | Parameter | Type     | Description                       |
