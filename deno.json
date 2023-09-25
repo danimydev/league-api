@@ -12,7 +12,12 @@
     "semiColons": true,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ]
   }
 }
