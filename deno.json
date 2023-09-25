@@ -6,13 +6,18 @@
     "dev": "deno run --watch --allow-net ./src/index.ts"
   },
   "fmt": {
-    "useTabs": true,
+    "useTabs": false,
     "lineWidth": 80,
     "indentWidth": 2,
     "semiColons": true,
     "singleQuote": true,
     "proseWrap": "preserve",
-    "include": ["src/"],
-    "exclude": ["src/testdata/", "data/fixtures/**/*.ts"]
+    "include": [
+      "src/"
+    ],
+    "exclude": [
+      "src/testdata/",
+      "data/fixtures/**/*.ts"
+    ]
   }
 }
