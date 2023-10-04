@@ -81,3 +81,9 @@ GET /images/icons/${iconId}
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `iconId`      | `string` | **Required**. icon id to fetch ex. 658, 0, 10 |
+
+#### Get spells
+
+```http
+GET /spells
+```
