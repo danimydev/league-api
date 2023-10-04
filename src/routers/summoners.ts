@@ -1,4 +1,4 @@
-import { Router } from 'https://deno.land/x/oak@v12.5.0/router.ts';
+import { Router } from 'oak';
 import { SummonersRepository } from '../repositories/summoners.ts';
 
 const summonersRouter = new Router({ prefix: '/summoners' })

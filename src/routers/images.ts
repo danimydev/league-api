@@ -1,5 +1,6 @@
-import { Router } from 'https://deno.land/x/oak@v12.5.0/router.ts';
-import { ImagesRepository } from '../repositories/images.ts';
+import { Router } from 'oak';
+
+import { ImagesRepository } from "@/repositories/images.ts";
 
 const imagesRouter = new Router({ prefix: '/images' })
   .get('/icons/:iconId', (ctx) => {

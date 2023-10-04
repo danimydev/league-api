@@ -1,6 +1,7 @@
-import { Router } from 'https://deno.land/x/oak@v12.5.0/router.ts';
-import { ChampionsRepository } from '../repositories/champions.ts';
-import { ImagesRepository } from '../repositories/images.ts';
+import { Router } from 'oak';
+
+import { ChampionsRepository } from "@/repositories/champions.ts";
+import { ImagesRepository } from "@/repositories/images.ts";
 
 const championsRouter = new Router({ prefix: '/champions' })
   .get('/', (ctx) => {

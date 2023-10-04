@@ -1,6 +1,7 @@
 {
   "imports": {
-    "oak": "https://deno.land/x/oak@v12.5.0/mod.ts"
+    "oak": "https://deno.land/x/oak@v12.5.0/mod.ts",
+    "@/": "./src/"
   },
   "tasks": {
     "dev": "deno run --watch --allow-net ./src/index.ts"

@@ -1,5 +1,6 @@
-import { Router } from 'https://deno.land/x/oak@v12.5.0/router.ts';
-import REGIONS from '../data/regions.ts';
+import { Router } from 'oak';
+
+import REGIONS from "@/data/regions.ts";
 
 const informationRouter = new Router({ prefix: '/information' })
   .get('/regions', (ctx) => {

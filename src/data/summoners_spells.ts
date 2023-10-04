@@ -750,3 +750,5 @@ const SUMMONERS_SPELLS = {
     'resource': '&nbsp;',
   },
 };
+
+export const spells = Object.values(SUMMONERS_SPELLS);
