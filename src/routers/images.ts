@@ -1,6 +1,6 @@
 import { Router } from 'oak';
 
-import { ImagesRepository } from "@/repositories/images.ts";
+import { ImagesRepository } from '@/repositories/images.ts';
 
 const imagesRouter = new Router({ prefix: '/images' })
   .get('/icons/:iconId', (ctx) => {

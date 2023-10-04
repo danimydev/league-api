@@ -1,6 +1,6 @@
 import { Router } from 'oak';
 
-import REGIONS from "@/data/regions.ts";
+import REGIONS from '@/data/regions.ts';
 
 const informationRouter = new Router({ prefix: '/information' })
   .get('/regions', (ctx) => {
