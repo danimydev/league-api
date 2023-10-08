@@ -751,4 +751,6 @@ const SUMMONERS_SPELLS = {
   },
 };
 
-export const spells = Object.values(SUMMONERS_SPELLS);
+const SPELLS = Object.values(SUMMONERS_SPELLS);
+
+export default SPELLS;

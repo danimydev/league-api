@@ -1,4 +1,4 @@
-import { CHAMPIONS } from '../data/champions.ts';
+import { CHAMPIONS } from '@/data/champions.ts';
 
 export class ChampionsRepository {
   static get(filters: {
