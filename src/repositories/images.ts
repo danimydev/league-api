@@ -5,9 +5,9 @@ export class ImagesRepository {
     const url =
       `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${skin}.jpg`;
     return {
-      type: 'splash',
+      type: "splash",
       image: {
-        type: 'image/jpg',
+        type: "image/jpg",
         url,
       },
     };
@@ -19,9 +19,9 @@ export class ImagesRepository {
     const url =
       `http://ddragon.leagueoflegends.com/cdn/img/champion/loading/${championName}_${skin}.jpg`;
     return {
-      type: 'loading',
+      type: "loading",
       image: {
-        type: 'image/jpg',
+        type: "image/jpg",
         url,
       },
     };
@@ -31,9 +31,9 @@ export class ImagesRepository {
     const url =
       `http://ddragon.leagueoflegends.com/cdn/13.13.1/img/champion/${championName}.png`;
     return {
-      type: 'square',
+      type: "square",
       image: {
-        type: 'image/png',
+        type: "image/png",
         url,
       },
     };
@@ -43,9 +43,9 @@ export class ImagesRepository {
     const url =
       `http://ddragon.leagueoflegends.com/cdn/13.13.1/img/profileicon/${id}.png`;
     return {
-      type: 'icon',
+      type: "icon",
       image: {
-        type: 'image/png',
+        type: "image/png",
         url,
       },
     };
@@ -55,9 +55,9 @@ export class ImagesRepository {
     const url =
       `http://ddragon.leagueoflegends.com/cdn/13.13.1/img/spell/${name}.png`;
     return {
-      type: 'spell',
+      type: "spell",
       image: {
-        type: 'image/png',
+        type: "image/png",
         url,
       },
     };

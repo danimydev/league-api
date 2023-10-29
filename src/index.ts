@@ -1,11 +1,11 @@
-import { Application } from 'oak';
+import { Application } from "oak";
 
-import championsRouter from '@/routers/champions.ts';
-import imagesRouter from '@/routers/images.ts';
-import summonersRouter from '@/routers/summoners.ts';
-import informationRouter from '@/routers/information.ts';
-import versionsRouter from '@/routers/versions.ts';
-import spellsRouter from '@/routers/spells.ts';
+import championsRouter from "@/routers/champions.ts";
+import imagesRouter from "@/routers/images.ts";
+import summonersRouter from "@/routers/summoners.ts";
+import informationRouter from "@/routers/information.ts";
+import versionsRouter from "@/routers/versions.ts";
+import spellsRouter from "@/routers/spells.ts";
 
 const app = new Application()
   .use(championsRouter.routes())
@@ -16,4 +16,4 @@ const app = new Application()
   .use(spellsRouter.routes());
 
 await app.listen({ port: 3000 });
-console.log('app started at 3000');
+console.log("app started at 3000");

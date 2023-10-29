@@ -1,13 +1,13 @@
-import { Router } from 'oak';
+import { Router } from "oak";
 
-const versionsRouter = new Router({ prefix: '/versions' })
-  .get('/', async (ctx) => {
+const versionsRouter = new Router({ prefix: "/versions" })
+  .get("/", async (ctx) => {
     const response = await fetch(
-      'https://ddragon.leagueoflegends.com/api/versions.json',
+      "https://ddragon.leagueoflegends.com/api/versions.json",
       {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       },
     );
@@ -24,7 +24,7 @@ const versionsRouter = new Router({ prefix: '/versions' })
     if (!versions) {
       ctx.response.status = 500;
       ctx.response.body = {
-        code: 'INTERNAL_SERVER_ERROR',
+        code: "INTERNAL_SERVER_ERROR",
       };
     }
     ctx.response.status = 200;

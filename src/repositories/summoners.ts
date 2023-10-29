@@ -21,7 +21,7 @@ export class SummonersRepository {
         encodeURIComponent(args.summonerName)
       }`,
     );
-    url.searchParams.set('api_key', args.apiKey);
+    url.searchParams.set("api_key", args.apiKey);
     const response = await fetch(url);
     return await response.json() as Summoner;
   }
