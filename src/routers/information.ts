@@ -1,16 +1,107 @@
 import { Router } from "oak";
 
-import { regions } from "@/data/regions.ts";
-import { versions } from "@/data/versions.ts";
-import { languages } from "@/data/languages.ts";
-
 export const informationRouter = new Router({ prefix: "/information" })
-  .get("/regions", (ctx) => {
-    return ctx.response.body = regions;
+  .get("/regions", async (ctx) => {
+    const response = await fetch(
+      "https://ddragon.leagueoflegends.com/realms/na.json",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    const { status, statusText } = response;
+    if (status !== 200) {
+      ctx.response.status = status;
+      ctx.response.body = {
+        code: statusText,
+      };
+    }
+
+    const versions = await response.json() as string[];
+    if (!versions) {
+      ctx.response.status = 500;
+      ctx.response.body = {
+        code: "INTERNAL_SERVER_ERROR",
+      };
+    }
+    ctx.response.status = 200;
+    ctx.response.body = {
+      versions,
+      timeStampt: Date.now(),
+    };
+    
+    return;
   })
-  .get("/versions", (ctx) => {
-    return ctx.response.body = versions;
+
+  .get("/versions", async (ctx) => {
+    const response = await fetch(
+      "https://ddragon.leagueoflegends.com/api/versions.json",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    const { status, statusText } = response;
+    if (status !== 200) {
+      ctx.response.status = status;
+      ctx.response.body = {
+        code: statusText,
+      };
+    }
+
+    const versions = await response.json() as string[];
+    if (!versions) {
+      ctx.response.status = 500;
+      ctx.response.body = {
+        code: "INTERNAL_SERVER_ERROR",
+      };
+    }
+    ctx.response.status = 200;
+    ctx.response.body = {
+      versions,
+      timeStampt: Date.now(),
+    };
+
+    return;
   })
-  .get("/languages", (ctx) => {
-    return ctx.response.body = languages;
+
+  .get("/languages", async (ctx) => {
+    const response = await fetch(
+      "https://ddragon.leagueoflegends.com/cdn/languages.json",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+
+    const { status, statusText } = response;
+    if (status !== 200) {
+      ctx.response.status = status;
+      ctx.response.body = {
+        code: statusText,
+      };
+    }
+
+    const versions = await response.json() as string[];
+    if (!versions) {
+      ctx.response.status = 500;
+      ctx.response.body = {
+        code: "INTERNAL_SERVER_ERROR",
+      };
+    }
+    ctx.response.status = 200;
+    ctx.response.body = {
+      versions,
+      timeStampt: Date.now(),
+    };
+
+    return;
   });
