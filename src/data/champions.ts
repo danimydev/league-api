@@ -1,46 +1,4 @@
-export type Champion = {
-  id: string;
-  key: string;
-  name: string;
-  title: string;
-  blurb: string;
-  info: { attack: 8; defense: 4; magic: 3; difficulty: 4 };
-  image: {
-    full: string;
-    sprite: string;
-    group: string;
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-  };
-  tags: Array<string>;
-  partype: string;
-  stats: {
-    hp: number;
-    hpperlevel: number;
-    mp: number;
-    mpperlevel: number;
-    movespeed: number;
-    armor: number;
-    armorperlevel: number;
-    spellblock: number;
-    spellblockperlevel: number;
-    attackrange: number;
-    hpregen: number;
-    hpregenperlevel: number;
-    mpregen: number;
-    mpregenperlevel: number;
-    crit: number;
-    critperlevel: number;
-    attackdamage: number;
-    attackdamageperlevel: number;
-    attackspeedperlevel: number;
-    attackspeed: number;
-  };
-};
-
-export const CHAMPIONS_OBJECT = {
+const rawChampions = {
   Aatrox: {
     version: "13.8.1",
     id: "Aatrox",
@@ -7052,4 +7010,4 @@ export const CHAMPIONS_OBJECT = {
   },
 };
 
-export const CHAMPIONS = Object.values(CHAMPIONS_OBJECT);
+export const champions = Object.values(rawChampions);

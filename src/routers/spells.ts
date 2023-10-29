@@ -1,12 +1,10 @@
 import { Router } from "oak";
 
-import SPELLS from "@/data/summoners_spells.ts";
+import { summonersSpells } from "@/data/summoners-spells.ts";
 
-const spellsRouter = new Router({ prefix: "/spells" })
+export const spellsRouter = new Router({ prefix: "/spells" })
   .get("/", (ctx) => {
     ctx.response.status = 200;
-    ctx.response.body = SPELLS;
+    ctx.response.body = summonersSpells;
     return;
   });
-
-export default spellsRouter;

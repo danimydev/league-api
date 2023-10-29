@@ -1,4 +1,4 @@
-const VERSIONS = [
+export const versions = [
   "13.19.1",
   "13.18.1",
   "13.17.1",
@@ -428,5 +428,3 @@ const VERSIONS = [
   "lolpatch_3.8",
   "lolpatch_3.7",
 ];
-
-export default VERSIONS;

@@ -1,11 +1,11 @@
-import { CHAMPIONS } from "@/data/champions.ts";
+import { champions } from "@/data/champions.ts";
 
 export class ChampionsRepository {
   static get(filters: {
     tags: Array<string>;
     partypes: Array<string>;
   }) {
-    return CHAMPIONS.filter((c) => {
+    return champions.filter((c) => {
       let includesTag = filters.tags.length === 0;
       let includesPartypes = filters.partypes.length === 0;
 
@@ -28,7 +28,7 @@ export class ChampionsRepository {
   }
 
   static getById(id: string) {
-    const filteredChampions = CHAMPIONS.filter((c) => c.id === id);
+    const filteredChampions = champions.filter((c) => c.id === id);
     if (filteredChampions.length !== 0) {
       return filteredChampions.at(0);
     }

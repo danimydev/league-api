@@ -1,4 +1,4 @@
-const SUMMONERS_SPELLS = {
+const rawSummonersSpells = {
   "SummonerBarrier": {
     "id": "SummonerBarrier",
     "name": "Barrier",
@@ -751,6 +751,4 @@ const SUMMONERS_SPELLS = {
   },
 };
 
-const SPELLS = Object.values(SUMMONERS_SPELLS);
-
-export default SPELLS;
+export const summonersSpells = Object.values(rawSummonersSpells);

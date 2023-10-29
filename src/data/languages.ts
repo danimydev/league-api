@@ -1,4 +1,4 @@
-const LANGUAGES = [
+export const languages = [
   "en_US",
   "cs_CZ",
   "de_DE",
@@ -26,5 +26,3 @@ const LANGUAGES = [
   "zh_MY",
   "zh_TW",
 ];
-
-export default LANGUAGES;
