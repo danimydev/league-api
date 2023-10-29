@@ -4,7 +4,7 @@ import { regions } from "@/data/regions.ts";
 import { versions } from "@/data/versions.ts";
 import { languages } from "@/data/languages.ts";
 
-const informationRouter = new Router({ prefix: "/information" })
+export const informationRouter = new Router({ prefix: "/information" })
   .get("/regions", (ctx) => {
     return ctx.response.body = regions;
   })
@@ -14,5 +14,3 @@ const informationRouter = new Router({ prefix: "/information" })
   .get("/languages", (ctx) => {
     return ctx.response.body = languages;
   });
-
-export default informationRouter;

@@ -1,6 +1,6 @@
 import { Router } from "oak";
 
-const versionsRouter = new Router({ prefix: "/versions" })
+export const versionsRouter = new Router({ prefix: "/versions" })
   .get("/", async (ctx) => {
     const response = await fetch(
       "https://ddragon.leagueoflegends.com/api/versions.json",
@@ -34,5 +34,3 @@ const versionsRouter = new Router({ prefix: "/versions" })
     };
     return;
   });
-
-export default versionsRouter;

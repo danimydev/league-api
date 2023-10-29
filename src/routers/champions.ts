@@ -3,7 +3,7 @@ import { Router } from "oak";
 import { ChampionsRepository } from "@/repositories/champions.ts";
 import { ImagesRepository } from "@/repositories/images.ts";
 
-const championsRouter = new Router({ prefix: "/champions" })
+export const championsRouter = new Router({ prefix: "/champions" })
   .get("/", (ctx) => {
     const { searchParams } = ctx.request.url;
     const tags = (searchParams.get("tags") || "").split(/ /g);
@@ -33,5 +33,3 @@ const championsRouter = new Router({ prefix: "/champions" })
       }),
     ];
   });
-
-export default championsRouter;
