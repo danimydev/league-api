@@ -4,7 +4,9 @@
     "@/": "./src/"
   },
   "tasks": {
-    "dev": "deno run --watch --allow-net ./src/index.ts"
+    "dev": "deno run --watch --allow-net ./src/index.ts",
+    "check": "deno fmt --check && deno lint && deno check **/*.ts",
+    "start": "deno run --allow-net ./src/index.ts"
   },
   "fmt": {
     "useTabs": false,
