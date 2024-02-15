@@ -13,11 +13,9 @@ export const championsRouter = new Router({ prefix: "/champions" })
       partypes: partypes.at(0) !== "" ? partypes : [],
     });
   })
-
   .get("/:id", (ctx) => {
     return ctx.response.body = ChampionsRepository.getById(ctx.params.id);
   })
-  
   .get("/:id/images", (ctx) => {
     const { searchParams } = ctx.request.url;
     const skinNumber = searchParams.get("skinNumber") || "0";

@@ -32,10 +32,9 @@ export const informationRouter = new Router({ prefix: "/information" })
       versions,
       timeStampt: Date.now(),
     };
-    
+
     return;
   })
-
   .get("/versions", async (ctx) => {
     const response = await fetch(
       "https://ddragon.leagueoflegends.com/api/versions.json",
@@ -70,7 +69,6 @@ export const informationRouter = new Router({ prefix: "/information" })
 
     return;
   })
-
   .get("/languages", async (ctx) => {
     const response = await fetch(
       "https://ddragon.leagueoflegends.com/cdn/languages.json",
