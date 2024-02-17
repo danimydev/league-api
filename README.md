@@ -26,32 +26,106 @@ Go to the project directory
 Start the server
 
 ```bash
-  deno task dev
+  deno task start
 ```
 
 ## API Reference
 
-#### Get all champions
+Download postman collection [here]()
+
+### Versions
 
 ```http
-GET /champions
+GET /versions
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "versions": [
+    "14.3.1",
+    "14.2.1",
+    "14.1.1",
+    ...
+  ]
+}
 ```
+
+### Languages
+
+```http
+GET /languages
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "languages": [
+    "en_US",
+    "cs_CZ",
+    "de_DE",
+    ...
+  ]
+}
+```
+
+### Champions
+
+##### all (filters)
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `partypes` | `string` | **Optional**. Mage+Tank |
+| `partypes` | `string` | **Optional**. `Mage,Tank` \| `Mage` |
+| `version` | `number` | **Optional**. `13.1.1` |
+| `lang` | `string` | **Optional**. `en_US` |
 
-#### Get champion by name
+```http
+GET /champions
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "champions": {
+    "type": "champion",
+    "format": "standAloneComplex",
+    "version": "14.3.1",
+    "data": {
+      "Aatrox": {
+        ...
+      },
+      "Alistar": {
+        ...
+      },
+      "Ezreal": {
+        ...
+      },
+      ...
+    }
+  }
+}
+```
+
+##### By name
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `version` | `number` | **Optional**. `14.3.1` |
+| `lang` | `string` | **Optional**. `en_US` |
 
 ```http
 GET /champions/${championName}
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "champions": {
+    "type": "champion",
+    "format": "standAloneComplex",
+    "version": "14.3.1",
+    "data": {
+      "Aatrox": {
+        ...
+      }
+    }
+  }
+}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `championName`      | `string` | **Required**. Name of champion to fetch |
-
-#### Get champion image
+##### Champion's images
 
 ```http
 GET /champions/${championName}/images
@@ -59,8 +133,31 @@ GET /champions/${championName}/images
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `championName`      | `string` | **Required**. Name of champion to fetch image |
+| `championName`      | `string` | **Required**. `Ezreal` \| `ezreal` |
+| `version`      | `string` | **Optional**. `14.3.1` |
+| `skin`      | `string` | **Optional**. `0` |
 
+```http
+GET /champions/${championName}
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "images": {
+    "splash": {
+      "ext": "image/jpg",
+      "url": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ezreal_0.jpg"
+    },
+    "loading": {
+      "ext": "image/jpg",
+      "url": "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ezreal_0.jpg"
+    },
+    "square": {
+      "ext": "image/png",
+      "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Ezreal.png"
+    }
+  }
+}
+```
 
 #### Get summoner by name
 
@@ -81,9 +178,3 @@ GET /images/icons/${iconId}
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `iconId`      | `string` | **Required**. icon id to fetch ex. 658, 0, 10 |
-
-#### Get spells
-
-```http
-GET /spells
-```
