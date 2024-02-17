@@ -159,22 +159,72 @@ Content-Type: application/json
 }
 ```
 
-#### Get summoner by name
+### Summoners
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `summonerName`      | `string` | **Required**. `Faker` |
+| `region`      | `string` | **Optional**. `LAN1` |
 
 ```http
 GET /summoners/${summonerName}
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "id": "*",
+  "accountId": "*",
+  "puuid": "*",
+  "name": "Sneaky",
+  "profileIconId": 4561,
+  "revisionDate": 1708143243689,
+  "summonerLevel": 681
+}
 ```
+
+### Images
+
+##### Profile icons
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `summonerName`      | `string` | **Required**. Name of summoner to fetch image |
-
-#### Get icon by id
+| `version`      | `string` | **Optional**. `14.3.1` |
 
 ```http
-GET /images/icons/${iconId}
+GET /images/profile-icons
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "icons": {
+    "type": "profileicon",
+    "version": "14.3.1",
+    "data": {
+      "0": {
+        ...
+      },
+      "1": {
+        ...
+      },
+      "2": {
+        ...
+      },
+      ...
+    }    
+  }
+}
 ```
+
+##### Profile icon
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `iconId`      | `string` | **Required**. icon id to fetch ex. 658, 0, 10 |
+| `version`      | `string` | **Optional**. `14.3.1` |
+
+```http
+GET /images/profile-icons/${id}
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "ext": "image/png",
+  "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/1.png"
+}
+```
