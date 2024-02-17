@@ -9,12 +9,6 @@ Deno.test("dataDragon", async (t) => {
     assertGreater(versions.length, 0);
   });
 
-  await t.step("getVersions failed", async () => {
-    const versions = await dataDragon.getVersions();
-    assertEquals(typeof versions.at(0), "string");
-    assertGreater(versions.length, 0);
-  });
-
   await t.step("getLanguages", async () => {
     const versions = await dataDragon.getLanguages();
     assertEquals(typeof versions.at(0), "string");
