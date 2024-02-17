@@ -1,4 +1,5 @@
 import Utils from "@/services/data-dragon/utils.ts";
+
 import {
   ChampionsEndpointResponse,
   ProfileIconsEndpointResponse,
@@ -127,21 +128,22 @@ const getChampionImagesUrls = (args: {
 }) => {
   const version = args.version || DEFAULT_VERSION;
   const skin = args.skin || DEFAULT_SKIN;
+  const championName = Utils.getNormalizedChampionName(args.championName.trim());
 
   return {
     splash: {
       ext: "image/jpg",
       url:
-        `${BASE_URL}/cdn/img/champion/splash/${args.championName}_${skin}.jpg`,
+        `${BASE_URL}/cdn/img/champion/splash/${championName}_${skin}.jpg`,
     },
     loading: {
       ext: "image/jpg",
       url:
-        `${BASE_URL}/cdn/img/champion/loading/${args.championName}_${skin}.jpg`,
+        `${BASE_URL}/cdn/img/champion/loading/${championName}_${skin}.jpg`,
     },
     square: {
       ext: "image/png",
-      url: `${BASE_URL}/cdn/${version}/img/champion/${args.championName}.png`,
+      url: `${BASE_URL}/cdn/${version}/img/champion/${championName}.png`,
     },
   };
 };

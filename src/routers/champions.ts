@@ -46,9 +46,13 @@ export const championsRouter = new Router({ prefix: "/champions" })
     const skin = searchParams.get("skin");
     const version = searchParams.get("version");
     const championName = ctx.params.championName;
-    return dataDragon.getChampionImagesUrls({
+    const championImages = dataDragon.getChampionImagesUrls({
       championName,
       skin,
       version,
     });
+    ctx.response.status = 200;
+    return ctx.response.body = {
+      images: championImages,
+    };
   });

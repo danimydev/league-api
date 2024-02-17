@@ -1,8 +1,8 @@
 import { Router } from "oak";
 
-import dataDragon from "../services/data-dragon/index.ts";
+import dataDragon from "@/services/data-dragon/index.ts";
 
-export const rootRouter = new Router({ prefix: "/" })
+export const rootRouter = new Router()
   .get("/versions", async (ctx) => {
     try {
       const versions = await dataDragon.getVersions();
