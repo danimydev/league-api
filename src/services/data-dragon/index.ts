@@ -128,18 +128,18 @@ const getChampionImagesUrls = (args: {
 }) => {
   const version = args.version || DEFAULT_VERSION;
   const skin = args.skin || DEFAULT_SKIN;
-  const championName = Utils.getNormalizedChampionName(args.championName.trim());
+  const championName = Utils.getNormalizedChampionName(
+    args.championName.trim(),
+  );
 
   return {
     splash: {
       ext: "image/jpg",
-      url:
-        `${BASE_URL}/cdn/img/champion/splash/${championName}_${skin}.jpg`,
+      url: `${BASE_URL}/cdn/img/champion/splash/${championName}_${skin}.jpg`,
     },
     loading: {
       ext: "image/jpg",
-      url:
-        `${BASE_URL}/cdn/img/champion/loading/${championName}_${skin}.jpg`,
+      url: `${BASE_URL}/cdn/img/champion/loading/${championName}_${skin}.jpg`,
     },
     square: {
       ext: "image/png",
