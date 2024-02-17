@@ -9,7 +9,7 @@ const app = new Application()
   .use(rootRouter.routes())
   .use(championsRouter.routes())
   .use(summonersRouter.routes())
-  .use(imagesRouter.routes())
+  .use(imagesRouter.routes());
 
 await app.listen({ port: 3000 });
 console.log("app started at 3000");
