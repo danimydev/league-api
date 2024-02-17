@@ -108,3 +108,15 @@ export type ChampionsEndpointResponse = {
     [championName: string]: Champion;
   };
 };
+
+type ProfileIcon = {
+  id: string;
+};
+
+export type ProfileIconsEndpointResponse = {
+  type: "profileicon";
+  version: string;
+  data: {
+    [profileIconId: string]: ProfileIcon;
+  };
+};

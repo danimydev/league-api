@@ -1,15 +1,13 @@
 import { Router } from "oak";
 
-import { ImagesRepository } from "@/repositories/images.ts";
-
-import dataDragon from "@/data-dragon/index.ts";
+import dataDragon from "@/services/data-dragon/index.ts";
 
 export const championsRouter = new Router({ prefix: "/champions" })
   .get("/", async (ctx) => {
     try {
       const { searchParams } = ctx.request.url;
-      const lang = searchParams.get("lang") || undefined;
-      const version = searchParams.get("version") || undefined;
+      const lang = searchParams.get("lang");
+      const version = searchParams.get("version");
       const champions = await dataDragon.getChampions({ version, lang });
       ctx.response.status = 200;
       return ctx.response.body = {
@@ -25,8 +23,8 @@ export const championsRouter = new Router({ prefix: "/champions" })
   .get("/:championName", async (ctx) => {
     try {
       const { searchParams } = ctx.request.url;
-      const lang = searchParams.get("lang") || undefined;
-      const version = searchParams.get("version") || undefined;
+      const lang = searchParams.get("lang");
+      const version = searchParams.get("version");
       const champion = await dataDragon.getChampion({
         version,
         lang,
@@ -43,20 +41,14 @@ export const championsRouter = new Router({ prefix: "/champions" })
       };
     }
   })
-  .get("/:id/images", (ctx) => {
+  .get("/:championName/images", (ctx) => {
     const { searchParams } = ctx.request.url;
-    const skinNumber = searchParams.get("skinNumber") || "0";
-    return ctx.response.body = [
-      ImagesRepository.getLoading({
-        championName: ctx.params.id,
-        skin: skinNumber,
-      }),
-      ImagesRepository.getSplash({
-        championName: ctx.params.id,
-        skin: skinNumber,
-      }),
-      ImagesRepository.getSquare({
-        championName: ctx.params.id,
-      }),
-    ];
+    const skin = searchParams.get("skin");
+    const version = searchParams.get("version");
+    const championName = ctx.params.championName;
+    return dataDragon.getChampionImagesUrls({
+      championName,
+      skin,
+      version,
+    });
   });

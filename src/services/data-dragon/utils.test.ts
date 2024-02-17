@@ -1,6 +1,6 @@
 import { assertEquals } from "std/assert";
 
-import Utils from "@/data-dragon/utils.ts";
+import Utils from "@/services/data-dragon/utils.ts";
 
 Deno.test("getNormalizedChampionName", () => {
   assertEquals(

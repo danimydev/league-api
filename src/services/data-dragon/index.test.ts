@@ -1,6 +1,8 @@
 import { assertEquals, assertGreater } from "std/assert";
 
-import dataDragon from "@/data-dragon/index.ts";
+import dataDragon from "@/services/data-dragon/index.ts";
+
+const championName = "Aatrox";
 
 Deno.test("dataDragon", async (t) => {
   await t.step("getVersions", async () => {
@@ -22,8 +24,17 @@ Deno.test("dataDragon", async (t) => {
   });
 
   await t.step("getChampion", async () => {
-    const champion = await dataDragon.getChampion({ championName: "Aatrox" });
+    const champion = await dataDragon.getChampion({ championName });
     assertEquals(champion.type, "champion");
     assertEquals(champion.format, "standAloneComplex");
+  });
+
+  await t.step("getChampionImagesUrl", () => {
+    const championImagesUrl = dataDragon.getChampionImagesUrls({
+      championName,
+    });
+    assertEquals(championImagesUrl.splash.ext, "image/jpg");
+    assertEquals(championImagesUrl.loading.ext, "image/jpg");
+    assertEquals(championImagesUrl.square.ext, "image/png");
   });
 });

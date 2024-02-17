@@ -1,6 +1,6 @@
 import { Router } from "oak";
 
-import dataDragon from "@/data-dragon/index.ts";
+import dataDragon from "../services/data-dragon/index.ts";
 
 export const rootRouter = new Router({ prefix: "/" })
   .get("/versions", async (ctx) => {
