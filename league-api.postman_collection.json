@@ -144,6 +144,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "summoner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "RGAPI-e7099c41-b08d-49a1-b0c4-cfc02a0ee7be",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/summoners/Sneaky",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"summoners",
+						"Sneaky"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
