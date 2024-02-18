@@ -178,13 +178,15 @@ const getProfileIcons = async (args: {
   return profileIcons;
 };
 
-const getProfileIconUrl = (args: {
+const getProfileIcon = (args: {
   id: string;
   version?: string | null;
 }) => {
   const version = args.version || DEFAULT_VERSION;
 
   return {
+    id: args.id,
+    version,
     ext: "image/png",
     url: `${BASE_URL}/cdn/${version}/img/profileicon/${args.id}.png`,
   };
@@ -197,5 +199,5 @@ export default {
   getChampion,
   getChampionImagesUrls,
   getProfileIcons,
-  getProfileIconUrl,
+  getProfileIcon,
 };

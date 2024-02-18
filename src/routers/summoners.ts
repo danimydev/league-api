@@ -1,6 +1,7 @@
 import { Router } from "oak";
 
 import riotGames from "@/services/riot-games/index.ts";
+import dataDragon from "@/services/data-dragon/index.ts";
 
 export const summonersRouter = new Router({ prefix: "/summoners" })
   .get("/account", async (ctx) => {
@@ -63,9 +64,20 @@ export const summonersRouter = new Router({ prefix: "/summoners" })
         summonerName,
       });
 
+      const profileIcon = dataDragon.getProfileIcon({
+        id: summoner.profileIconId.toString(),
+      });
+
       ctx.response.status = 200;
       return ctx.response.body = {
-        summoner,
+        summoner: {
+          id: summoner.id,
+          accountId: summoner.accountId,
+          puuid: summoner.puuid,
+          name: summoner.name,
+          level: summoner.summonerLevel,
+          profileIcon,
+        },
       };
     } catch (error) {
       ctx.response.status = 500;
