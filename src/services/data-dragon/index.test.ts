@@ -37,4 +37,17 @@ Deno.test("dataDragon", async (t) => {
     assertEquals(championImagesUrl.loading.ext, "image/jpg");
     assertEquals(championImagesUrl.square.ext, "image/png");
   });
+
+  await t.step("profileIcons", () => {
+    const profileIcons = dataDragon.getProfileIcon({ id: "14" });
+    assertEquals(profileIcons.version, "14.3.1");
+    assertEquals(profileIcons.id, "14");
+    assertEquals(profileIcons.ext, "image/png");
+  });
+
+  await t.step("profileIcon", async () => {
+    const profileIcons = await dataDragon.getProfileIcons({});
+    assertEquals(profileIcons.version, "14.3.1");
+    assertEquals(profileIcons.type, "profileicon");
+  });
 });
