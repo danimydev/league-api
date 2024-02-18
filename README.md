@@ -43,8 +43,7 @@ Content-Type: application/json
   "versions": [
     "14.3.1",
     "14.2.1",
-    "14.1.1",
-    ...
+    "14.1.1"
   ]
 }
 ```
@@ -59,8 +58,7 @@ Content-Type: application/json
   "languages": [
     "en_US",
     "cs_CZ",
-    "de_DE",
-    ...
+    "de_DE"
   ]
 }
 ```
@@ -85,16 +83,9 @@ Content-Type: application/json
     "format": "standAloneComplex",
     "version": "14.3.1",
     "data": {
-      "Aatrox": {
-        ...
-      },
-      "Alistar": {
-        ...
-      },
-      "Ezreal": {
-        ...
-      },
-      ...
+      "Aatrox": {},
+      "Alistar": {},
+      "Ezreal": {}
     }
   }
 }
@@ -117,9 +108,7 @@ Content-Type: application/json
     "format": "standAloneComplex",
     "version": "14.3.1",
     "data": {
-      "Aatrox": {
-        ...
-      }
+      "Aatrox": {}
     }
   }
 }
@@ -161,6 +150,8 @@ Content-Type: application/json
 
 ### Summoners
 
+##### summoner
+
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `summonerName`      | `string` | **Required**. `Faker` |
@@ -171,13 +162,39 @@ GET /summoners/${summonerName}
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "id": "*",
-  "accountId": "*",
-  "puuid": "*",
-  "name": "Sneaky",
-  "profileIconId": 4561,
-  "revisionDate": 1708143243689,
-  "summonerLevel": 681
+  "summoner": {
+    "id": "*****",
+    "accountId": "*****",
+    "puuid": "*****",
+    "name": "Sneaky",
+    "level": 681,
+    "profileIcon": {
+      "id": "4561",
+      "version": "14.3.1",
+      "ext": "image/png",
+      "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/4561.png"
+    }
+  }
+}
+```
+
+##### account
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `tag_line`      | `string` | **Required**. `123` |
+| `game_name`      | `string` | **Optional**. `Devil Eyes` |
+
+```http
+GET /summoners/account/
+HTTP/1.1 200 OK
+Content-Type: application/json
+{
+  "account": {
+    "puuid": "*****",
+    "gameName": "Devil Eyes",
+    "tagLine": "123"
+  }
 }
 ```
 
@@ -194,20 +211,13 @@ GET /images/profile-icons
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "icons": {
+  "profileIcons": {
     "type": "profileicon",
     "version": "14.3.1",
     "data": {
-      "0": {
-        ...
-      },
-      "1": {
-        ...
-      },
-      "2": {
-        ...
-      },
-      ...
+      "0": {},
+      "1": {},
+      "2": {}
     }    
   }
 }
@@ -224,7 +234,11 @@ GET /images/profile-icons/${id}
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "ext": "image/png",
-  "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/1.png"
+  "profileIcon": {
+    "id": "4",
+    "version": "14.3.1",
+    "ext": "image/png",
+    "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/4.png"
+  }
 }
 ```

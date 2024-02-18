@@ -1,4 +1,4 @@
-type Summoner = {
+export type GetSummonersByNameEndpointResponse = {
   id: string;
   accountId: string;
   puuid: string;
@@ -8,4 +8,8 @@ type Summoner = {
   summonerLevel: number;
 };
 
-export type SummonersByNameEndpointResponse = Summoner;
+export type GetAccountEndpointResponse = {
+  puuid: string;
+  gameName: string;
+  tagLine: string;
+};

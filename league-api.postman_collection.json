@@ -1,4 +1,213 @@
 {
+	"info": {
+		"_postman_id": "b29420a4-0473-491d-8d90-62b5772004dd",
+		"name": "league-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31090561"
+	},
+	"item": [
+		{
+			"name": "versions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/versions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"versions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "languages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/languages",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"languages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile-icons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/images/profile-icons",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"images",
+						"profile-icons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile-icon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/images/profile-icons/4",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"images",
+						"profile-icons",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "champions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/champions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"champions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "champion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/champions/ezreal",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"champions",
+						"ezreal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "champion images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/champions/ezreal/images",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"champions",
+						"ezreal",
+						"images"
+					],
+					"query": [
+						{
+							"key": "skin",
+							"value": "3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "summoner",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/summoners/Sneaky",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"summoners",
+						"Sneaky"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/summoners/account?tag_line=123&game_name=Devil Eyes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"summoners",
+						"account"
+					],
+					"query": [
+						{
+							"key": "tag_line",
+							"value": "123"
+						},
+						{
+							"key": "game_name",
+							"value": "Devil Eyes"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
+=======
   "info": {
     "_postman_id": "b29420a4-0473-491d-8d90-62b5772004dd",
     "name": "league-api",
