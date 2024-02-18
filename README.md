@@ -43,8 +43,7 @@ Content-Type: application/json
   "versions": [
     "14.3.1",
     "14.2.1",
-    "14.1.1",
-    ...
+    "14.1.1"
   ]
 }
 ```
@@ -59,8 +58,7 @@ Content-Type: application/json
   "languages": [
     "en_US",
     "cs_CZ",
-    "de_DE",
-    ...
+    "de_DE"
   ]
 }
 ```
@@ -85,16 +83,9 @@ Content-Type: application/json
     "format": "standAloneComplex",
     "version": "14.3.1",
     "data": {
-      "Aatrox": {
-        ...
-      },
-      "Alistar": {
-        ...
-      },
-      "Ezreal": {
-        ...
-      },
-      ...
+      "Aatrox": {},
+      "Alistar": {},
+      "Ezreal": {}
     }
   }
 }
@@ -117,9 +108,7 @@ Content-Type: application/json
     "format": "standAloneComplex",
     "version": "14.3.1",
     "data": {
-      "Aatrox": {
-        ...
-      }
+      "Aatrox": {}
     }
   }
 }
@@ -226,16 +215,9 @@ Content-Type: application/json
     "type": "profileicon",
     "version": "14.3.1",
     "data": {
-      "0": {
-        ...
-      },
-      "1": {
-        ...
-      },
-      "2": {
-        ...
-      },
-      ...
+      "0": {},
+      "1": {},
+      "2": {}
     }    
   }
 }
