@@ -8,10 +8,10 @@ export const imagesRouter = new Router({ prefix: "/images" })
       const { searchParams } = ctx.request.url;
       const lang = searchParams.get("lang");
       const version = searchParams.get("version");
-      const icons = await dataDragon.getProfileIcons({ version, lang });
+      const profileIcons = await dataDragon.getProfileIcons({ version, lang });
       ctx.response.status = 200;
       return ctx.response.body = {
-        icons,
+        profileIcons,
       };
     } catch (error) {
       ctx.response.status = 500;
@@ -25,9 +25,11 @@ export const imagesRouter = new Router({ prefix: "/images" })
       const { id } = ctx.params;
       const { searchParams } = ctx.request.url;
       const version = searchParams.get("version");
-      const iconUrl = dataDragon.getProfileIconUrl({ id, version });
+      const profileIcon = dataDragon.getProfileIcon({ id, version });
       ctx.response.status = 200;
-      return ctx.response.body = iconUrl;
+      return ctx.response.body = {
+        profileIcon,
+      };
     } catch (error) {
       ctx.response.status = 500;
       return ctx.response.body = {
