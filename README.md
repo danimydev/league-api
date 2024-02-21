@@ -70,7 +70,7 @@ Content-Type: application/json
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `partypes` | `string` | **Optional**. `Mage,Tank` \| `Mage` |
-| `version` | `number` | **Optional**. `13.1.1` |
+| `version` | `number` | **Optional**. `14.3.1` |
 | `lang` | `string` | **Optional**. `en_US` |
 
 ```http
@@ -78,16 +78,42 @@ GET /champions
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "champions": {
-    "type": "champion",
-    "format": "standAloneComplex",
-    "version": "14.3.1",
-    "data": {
-      "Aatrox": {},
-      "Alistar": {},
-      "Ezreal": {}
+  "type": "champion",
+  "version": "14.3.1",
+  "data": [
+    {
+      "id": "Aatrox",
+      "name": "Aatrox",
+      "title": "the Darkin Blade",
+      "images": {},
+      "tags": [
+        "Fighter",
+        "Tank"
+      ],
+      "partype": "Blood Well"
+    },
+    {
+      "id": "Ahri",
+      "name": "Ahri",
+      "title": "the Nine-Tailed Fox",
+      "images": {},
+      "tags": [
+        "Mage",
+        "Assassin"
+      ],
+      "partype": "Mana"
+    },
+    {
+      "id": "Akali",
+      "name": "Akali",
+      "title": "the Rogue Assassin",
+      "images": {},
+      "tags": [
+        "Assassin"
+      ],
+      "partype": "Energy"
     }
-  }
+  ]
 }
 ```
 
@@ -103,13 +129,23 @@ GET /champions/${championName}
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "champions": {
-    "type": "champion",
-    "format": "standAloneComplex",
-    "version": "14.3.1",
-    "data": {
-      "Aatrox": {}
-    }
+  "type": "champion",
+  "version": "14.3.1",
+  "data": {
+    "id": "Ezreal",
+    "name": "Ezreal",
+    "title": "the Prodigal Explorer",
+    "images": {},
+    "skins": [],
+    "lore": "A dashing adventurer, unknowingly gifted in the magical arts, Ezreal raids long-lost catacombs, tangles with ancient curses, and overcomes seemingly impossible odds with ease.",
+    "blurb": "A dashing adventurer, unknowingly gifted...",
+    "allytips": [],
+    "enemyTips": [],
+    "tags": [],
+    "partype": "Mana",
+    "info": {},
+    "stats": {},
+    "passive": {}
   }
 }
 ```
