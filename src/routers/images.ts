@@ -9,26 +9,20 @@ export const imagesRouter = new Router({ prefix: "/images" })
       const lang = searchParams.get("lang");
       const version = searchParams.get("version");
       const profileIcons = await dataDragon.getProfileIcons({ version, lang });
+      const formmatedProfileIcons = Object.values(profileIcons.data).map(
+        (i) => ({
+          id: i.id,
+          image: {
+            ext: "png",
+            url: dataDragon.getProfileIcon({ id: i.id, version }),
+          },
+        }),
+      );
       ctx.response.status = 200;
       return ctx.response.body = {
-        profileIcons,
-      };
-    } catch (error) {
-      ctx.response.status = 500;
-      return ctx.response.body = {
-        error,
-      };
-    }
-  })
-  .get("/profile-icons/:id", (ctx) => {
-    try {
-      const { id } = ctx.params;
-      const { searchParams } = ctx.request.url;
-      const version = searchParams.get("version");
-      const profileIcon = dataDragon.getProfileIcon({ id, version });
-      ctx.response.status = 200;
-      return ctx.response.body = {
-        profileIcon,
+        type: profileIcons.type,
+        version: profileIcons.version,
+        data: formmatedProfileIcons,
       };
     } catch (error) {
       ctx.response.status = 500;

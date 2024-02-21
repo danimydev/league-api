@@ -247,34 +247,30 @@ GET /images/profile-icons
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
-  "profileIcons": {
-    "type": "profileicon",
-    "version": "14.3.1",
-    "data": {
-      "0": {},
-      "1": {},
-      "2": {}
-    }    
-  }
-}
-```
-
-##### Profile icon
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `version`      | `string` | **Optional**. `14.3.1` |
-
-```http
-GET /images/profile-icons/${id}
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "profileIcon": {
-    "id": "4",
-    "version": "14.3.1",
-    "ext": "image/png",
-    "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/4.png"
-  }
+  "type": "profileicon",
+  "version": "14.3.1",
+  "data": [
+    {
+      "id": 0,
+      "image": {
+        "ext": "png",
+        "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/0.png"
+      }
+    },
+    {
+      "id": 1,
+      "image": {
+        "ext": "png",
+        "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/1.png"
+      }
+    },
+    {
+      "id": 2,
+      "image": {
+        "ext": "png",
+        "url": "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/2.png"
+      }
+    }
+  ]
 }
 ```

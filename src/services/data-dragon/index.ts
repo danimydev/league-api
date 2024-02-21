@@ -184,12 +184,7 @@ const getProfileIcon = (args: {
 }) => {
   const version = args.version || DEFAULT_VERSION;
 
-  return {
-    id: args.id,
-    version,
-    ext: "image/png",
-    url: `${BASE_URL}/cdn/${version}/img/profileicon/${args.id}.png`,
-  };
+  return `${BASE_URL}/cdn/${version}/img/profileicon/${args.id}.png`;
 };
 
 const getSpriteUrl = (args: {
