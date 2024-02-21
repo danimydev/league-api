@@ -39,10 +39,11 @@ Deno.test("dataDragon", async (t) => {
   });
 
   await t.step("profileIcons", () => {
-    const profileIcons = dataDragon.getProfileIcon({ id: "14" });
-    assertEquals(profileIcons.version, "14.3.1");
-    assertEquals(profileIcons.id, "14");
-    assertEquals(profileIcons.ext, "image/png");
+    const profileIcon = dataDragon.getProfileIcon({ id: "14" });
+    assertEquals(
+      profileIcon,
+      "https://ddragon.leagueoflegends.com/cdn/14.3.1/img/profileicon/14.png",
+    );
   });
 
   await t.step("profileIcon", async () => {
