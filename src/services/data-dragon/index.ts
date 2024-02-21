@@ -192,6 +192,22 @@ const getProfileIcon = (args: {
   };
 };
 
+const getSpriteUrl = (args: {
+  filename: string;
+  version?: string | null;
+}) => {
+  const version = args.version || DEFAULT_VERSION;
+  return `${BASE_URL}/cdn/${version}/img/sprite/${args.filename}`;
+};
+
+const getPassiveUrl = (args: {
+  filename: string;
+  version?: string | null;
+}) => {
+  const version = args.version || DEFAULT_VERSION;
+  return `${BASE_URL}/cdn/${version}/img/passive/${args.filename}`;
+};
+
 export default {
   getVersions,
   getLanguages,
@@ -200,4 +216,6 @@ export default {
   getChampionImagesUrls,
   getProfileIcons,
   getProfileIcon,
+  getSpriteUrl,
+  getPassiveUrl,
 };
