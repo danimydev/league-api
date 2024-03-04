@@ -99,43 +99,10 @@
 			"response": []
 		},
 		{
-			"name": "champion images",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/champions/ezreal/images",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"champions",
-						"ezreal",
-						"images"
-					],
-					"query": [
-						{
-							"key": "skin",
-							"value": "3",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "summoner",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "localhost:3000/summoners/Sneaky",
 					"host": [
@@ -154,13 +121,7 @@
 			"name": "account",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "api_key",
-						"value": "",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"url": {
 					"raw": "localhost:3000/summoners/account?tag_line=123&game_name=Devil Eyes",
 					"host": [
