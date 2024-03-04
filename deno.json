@@ -3,13 +3,14 @@
     "oak": "https://deno.land/x/oak@v12.5.0/mod.ts",
     "std/assert": "https://deno.land/std@0.216.0/assert/mod.ts",
     "std/testing/mock": "https://deno.land/std@0.216.0/testing/mock.ts",
+    "std/dotenv": "https://deno.land/std@0.218.0/dotenv/mod.ts",
     "@/": "./src/"
   },
   "tasks": {
-    "dev": "deno run --watch --allow-net ./src/index.ts",
+    "dev": "deno run --watch --allow-net --allow-env --allow-read ./src/index.ts",
     "check": "deno fmt --check && deno lint && deno check **/*.ts",
-    "start": "deno run --allow-net ./src/index.ts",
-    "test": "deno test --allow-net"
+    "start": "deno run --allow-net --allow-env --allow-read ./src/index.ts",
+    "test": "deno test --allow-net --allow-env --allow-read"
   },
   "fmt": {
     "useTabs": false,
